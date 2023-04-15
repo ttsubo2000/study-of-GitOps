@@ -53,3 +53,23 @@ This step:
 This step will build the Docker image from the Dockerfile in the root of the repository (specified by `context: .`), push it to Docker Hub, and tag it with the version extracted from the git tag (`${{ env.VERSION }}`) and the `latest` tag.
 
 The `build-args` parameter allows you to pass build arguments to the Dockerfile. In this case, we're passing the `VERSION` argument, which can be used in the Dockerfile for setting the version of your application.
+
+## How to use
+
+### Fetch Docker Container from docker-hub
+
+    % docker pull ttsubo/study_gitops:1.0.2
+
+### Running Docker Container
+
+    % docker run -it -p 8080:8080 ttsubo/study_gitops:1.0.2
+
+### After running docker-container , you can access http server like this
+
+    % curl -X GET http://127.0.0.1:8080/info | jq .
+
+    {
+      "name": "Study-of-GitOps",
+      "version": "v1.0.2",
+      "date": "2023/4/15"
+    }

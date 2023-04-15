@@ -16,9 +16,19 @@ def makeResponse(code, data, type):
 
 @app.get('/')
 def get_version():
-    version = "v1.0.1"
+    version = "v1.0.2"
     logging.info("### Response: method=[get_version], version=[{0}]".format(version))
     return makeResponse(200, version, "plain")
+
+@app.get('/info')
+@app.get('/info/')
+def get_info():
+    name = "Study-of-GitOps"
+    version = "v1.0.2"
+    date = "2023/4/15"
+    info_dict = {"name": name, "version": version, "date": date}
+    
+    return makeResponse(200, info_dict, "json")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
