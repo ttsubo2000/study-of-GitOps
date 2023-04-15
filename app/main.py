@@ -1,8 +1,11 @@
+import sys
 import json
 import logging
 from bottle import Bottle, request, HTTPResponse, HTTPError
 
+args = sys.argv
 app = Bottle()
+
 
 def makeResponse(code, data, type):
     if type == "plain":
@@ -16,7 +19,7 @@ def makeResponse(code, data, type):
 
 @app.get('/')
 def get_version():
-    version = "v1.0.2"
+    version = "v" + args[1]
     logging.info("### Response: method=[get_version], version=[{0}]".format(version))
     return makeResponse(200, version, "plain")
 
@@ -24,7 +27,7 @@ def get_version():
 @app.get('/info/')
 def get_info():
     name = "Study-of-GitOps"
-    version = "v1.0.2"
+    version = "v" + args[1]
     date = "2023/4/15"
     info_dict = {"name": name, "version": version, "date": date}
     

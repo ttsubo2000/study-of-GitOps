@@ -58,11 +58,11 @@ The `build-args` parameter allows you to pass build arguments to the Dockerfile.
 
 ### Fetch Docker Container from docker-hub
 
-    % docker pull ttsubo/study_gitops:1.0.2
+    % docker pull ttsubo/study_gitops:1.0.3
 
 ### Running Docker Container
 
-    % docker run -it -p 8080:8080 ttsubo/study_gitops:1.0.2
+    % docker run -it -p 8080:8080 ttsubo/study_gitops:1.0.3
 
 ### After running docker-container , you can access http server like this
 
@@ -70,6 +70,6 @@ The `build-args` parameter allows you to pass build arguments to the Dockerfile.
 
     {
       "name": "Study-of-GitOps",
-      "version": "v1.0.2",
+      "version": "v1.0.3",
       "date": "2023/4/15"
     }

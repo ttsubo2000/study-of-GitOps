@@ -1,6 +1,9 @@
 # Start from the official Python base image.
 FROM python:3.9
 
+ARG VERSION
+ENV VERSION ${VERSION}
+
 # Set the current working directory to /code.
 # This is where we'll put the requirements.txt file and the app directory.
 WORKDIR /code
@@ -16,4 +19,4 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./app /code/app
 
 # Set the command to run the http server.
-CMD ["python", "app/main.py"]
+CMD python app/main.py ${VERSION}
